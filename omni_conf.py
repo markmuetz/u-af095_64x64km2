@@ -24,17 +24,15 @@ computers = {
 }
 
 expts = ['15s', '30s', '60s', 'no_graupel']
-if computer_name == 'rdf-comp':
-    comp = computers['rdf-comp']
-    for expt in expts:
-        comp['dirs']['work_' + expt] = '/nerc/n02/n02/mmuetz/um10.5_runs/20day/u-af095_64x64km2_1km_{0}/work'.format(expt)
-        comp['dirs']['results_' + expt] = '/nerc/n02/n02/mmuetz/omni_output/u-af095_64x64km2_{}/results'.format(expt)
-elif computer_name == 'zerogravitas':
-    comp = computers['zerogravitas']
-    for expt in expts:
-        comp['dirs']['work_' + expt] = '/home/markmuetz/omni_output/u-af095_64x64km2_1km/work_{0}'.format(expt)
-        comp['dirs']['results_' + expt] = '/home/markmuetz/omni_output/u-af095_64x64km2/results_{}'.format(expt)
+comp = computers['rdf-comp']
+for expt in expts:
+    comp['dirs']['work_' + expt] = '/nerc/n02/n02/mmuetz/um10.5_runs/20day/u-af095_64x64km2_1km_{0}/work'.format(expt)
+    comp['dirs']['results_' + expt] = '/nerc/n02/n02/mmuetz/omni_output/u-af095_64x64km2_{}/results'.format(expt)
 
+comp = computers['zerogravitas']
+for expt in expts:
+    comp['dirs']['work_' + expt] = '/home/markmuetz/omni_output/u-af095_64x64km2_1km/work_{0}'.format(expt)
+    comp['dirs']['results_' + expt] = '/home/markmuetz/omni_output/u-af095_64x64km2/results_{}'.format(expt)
 
 
 batches = odict(('batch{}'.format(i), {'index': i}) for i in range(4))
